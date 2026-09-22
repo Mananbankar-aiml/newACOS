@@ -1,0 +1,9 @@
+{
+  "buildCommand": "yarn install && DISABLE_ESLINT_PLUGIN=true CI=false NODE_OPTIONS=--max-old-space-size=4096 yarn build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.py" },
+    { "source": "/api",      "destination": "/api/index.py" }
+  ]
+}

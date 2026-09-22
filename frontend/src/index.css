@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+
+  /* surfaces */
+  --page-bg:      #060607;
+  --card-bg:      #141416;
+  --card-bg-2:    #0f0f11;
+  --border-color: #2a2a2e;
+  --border-soft:  #232326;
+
+  /* text */
+  --foreground:   #f7f7f8;
+  --muted-fg:     #8c8c93;
+  --muted-fg-2:   #6f6f76;
+
+  /* tailwind semantic tokens */
+  --background:         #060607;
+  --foreground-token:   #f7f7f8;
+  --card:               #141416;
+  --card-foreground:    #f7f7f8;
+  --popover:            #141416;
+  --popover-foreground: #f7f7f8;
+  --primary:            #a8a8ad;
+  --primary-foreground: #17171a;
+  --secondary:          #3d3d42;
+  --secondary-foreground: #f7f7f8;
+  --muted:              #1c1c1f;
+  --muted-foreground:   #8c8c93;
+  --accent:             #29292d;
+  --accent-foreground:  #f7f7f8;
+  --destructive:        #e2726f;
+  --destructive-foreground: #ffffff;
+  --border:             #2a2a2e;
+  --input:              #1c1c1f;
+  --ring:               #3b82f6;
+  --radius:             0.625rem; /* 10px = md */
+}
+
+html, body, #root {
+  background-color: #060607;
+  color: #f7f7f8;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-i {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* Remove glassmorphism helpers */
+.acos-grid-bg { display: none !important; }
+.acos-aurora  { display: none !important; }
+
+@layer base {
+  * {
+    border-color: #2a2a2e;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #060607; }
+::-webkit-scrollbar-thumb { background: #2a2a2e; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #3d3d42; }
+
+@keyframes acos-pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  70%  { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.acos-pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.5;
+  animation: acos-pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
